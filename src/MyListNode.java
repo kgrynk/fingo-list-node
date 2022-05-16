@@ -1,17 +1,18 @@
-public class MyListNode<T> implements ListNode<T>{
+public class MyListNode<T> implements ListNode<T> {
 
 	T data;
 	ListNode<T> next;
 
-	public MyListNode(){
+	public MyListNode() {
 		data = null;
 		next = null;
 	}
 
-	public MyListNode(T data){
+	public MyListNode(T data) {
 		this.data = data;
 		next = null;
 	}
+
 	@Override
 	public T data() {
 		return data;
@@ -33,7 +34,20 @@ public class MyListNode<T> implements ListNode<T>{
 		return data == null && next == null;
 	}
 
-	boolean hasCycle(ListNode<T> node){
-		return false;
+	boolean hasCycle(ListNode<T> node) {
+		ListNode<T> tortoise = node;
+		ListNode<T> hare = node;
+
+		do {
+			if (tortoise.next() == null)
+				return false;
+			tortoise = tortoise.next();
+
+			if (hare.next() == null || hare.next().next() == null)
+				return false;
+			hare = hare.next().next();
+		} while (tortoise != hare);
+
+		return true;
 	}
 }

@@ -41,4 +41,19 @@ public class Tests {
 		assertTrue(list1.hasCycle(list1));
 	}
 
+	@Test
+	void cycleTest2() {
+		final MyListNode<Integer> list1 = new MyListNode<>();
+		final MyListNode<Integer> list2 = new MyListNode<>();
+		final MyListNode<Integer> list3 = new MyListNode<>();
+		final MyListNode<Integer> list4 = new MyListNode<>();
+
+		list1.setNext(list2);
+		list2.setNext(list3);
+		list3.setNext(list4);
+		assertFalse(list1.hasCycle(list1));
+		list4.setNext(list2);
+		assertTrue(list1.hasCycle(list1));
+		assertTrue(list3.hasCycle(list3));
+	}
 }

@@ -43,7 +43,7 @@
     "project.structure.side.proportion": "0.0"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.Tests.cycleTest2">
     <configuration name="Tests.cycleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="fingo-list-node" />
       <option name="PACKAGE_NAME" value="" />
@@ -54,8 +54,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Tests.cycleTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="fingo-list-node" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Tests" />
+      <option name="METHOD_NAME" value="cycleTest2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Tests.cycleTest2" />
         <item itemvalue="JUnit.Tests.cycleTest" />
       </list>
     </recent_temporary>
