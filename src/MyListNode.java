@@ -32,4 +32,8 @@ public class MyListNode<T> implements ListNode<T>{
 	public boolean isEmpty() {
 		return data == null && next == null;
 	}
+
+	boolean hasCycle(ListNode<T> node){
+		return false;
+	}
 }

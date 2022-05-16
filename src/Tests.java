@@ -29,4 +29,16 @@ public class Tests {
 		assertFalse(list2.isEmpty());
 	}
 
+	@Test
+	void cycleTest() {
+		final MyListNode<Integer> list1 = new MyListNode<>();
+		final MyListNode<Integer> list2 = new MyListNode<>();
+
+		assertFalse(list1.hasCycle(list1));
+		list1.setNext(list2);
+		assertFalse(list1.hasCycle(list1));
+		list2.setNext(list1);
+		assertTrue(list1.hasCycle(list1));
+	}
+
 }
