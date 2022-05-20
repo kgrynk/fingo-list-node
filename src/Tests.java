@@ -31,8 +31,8 @@ public class Tests {
 
 	@Test
 	void cycleTest() {
-		final MyListNode<Integer> list1 = new MyListNode<>();
-		final MyListNode<Integer> list2 = new MyListNode<>();
+		final MyListNode<Integer> list1 = new MyListNode<>(1);
+		final MyListNode<Integer> list2 = new MyListNode<>(2);
 
 		assertFalse(list1.hasCycle(list1));
 		list1.setNext(list2);
@@ -43,10 +43,10 @@ public class Tests {
 
 	@Test
 	void cycleTest2() {
-		final MyListNode<Integer> list1 = new MyListNode<>();
-		final MyListNode<Integer> list2 = new MyListNode<>();
-		final MyListNode<Integer> list3 = new MyListNode<>();
-		final MyListNode<Integer> list4 = new MyListNode<>();
+		final MyListNode<Integer> list1 = new MyListNode<>(1);
+		final MyListNode<Integer> list2 = new MyListNode<>(2);
+		final MyListNode<Integer> list3 = new MyListNode<>(3);
+		final MyListNode<Integer> list4 = new MyListNode<>(4);
 
 		list1.setNext(list2);
 		list2.setNext(list3);
@@ -55,5 +55,26 @@ public class Tests {
 		list4.setNext(list2);
 		assertTrue(list1.hasCycle(list1));
 		assertTrue(list3.hasCycle(list3));
+	}
+
+	@Test
+	void immutableTest(){
+		final MyListNode<Integer> list1 = new MyListNode<>(1);
+		final MyListNode<Integer> list2 = new MyListNode<>(2);
+		final MyListNode<Integer> list3 = new MyListNode<>(3);
+		final MyListNode<Integer> list4 = new MyListNode<>(4);
+
+		list1.setNext(list2);
+		list2.setNext(list3);
+		list3.setNext(list4);
+
+		final MyImmutableListNode<Integer> list5 = new MyImmutableListNode<>(list1);
+		assertFalse(list5.hasCycle(list5));
+
+		list4.setNext(list2);
+		assertFalse(list5.hasCycle(list5));
+
+		final MyImmutableListNode<Integer> list6 = new MyImmutableListNode<>(list1);
+		assertTrue(list6.hasCycle(list6));
 	}
 }
